@@ -20,12 +20,12 @@
     }
   ],
   "todo": [
-  {
+    {
       "title": "Hello Michel",
       "desc": "Lorem ipsum dolor sit ",
       "endDate": "2022-10-10",
       "progress": "100%",
-      "status": "todo",
+      "status": "completed",
       "id": 1
     },
     {
@@ -33,7 +33,7 @@
       "desc": "Lorem ipsum dolor sit ",
       "endDate": "2022-10-10",
       "progress": "100%",
-      "status": "todo",
+      "status": "pending",
       "id": 2
     },
     {
@@ -44,28 +44,13 @@
       "status": "todo",
       "id": 3
     },
-    {
+     {
       "title": "Hello Michel",
       "desc": "Lorem ipsum dolor sit ",
       "endDate": "2022-10-10",
       "progress": "100%",
       "status": "todo",
       "id": 4
-    },{
-      "title": "Hello Michel",
-      "desc": "Lorem ipsum dolor sit ",
-      "endDate": "2022-10-10",
-      "progress": "100%",
-      "status": "todo",
-      "id": 5
-    },
-    {
-      "title": "Hello Michel",
-      "desc": "Lorem ipsum dolor sit ",
-      "endDate": "2022-10-10",
-      "progress": "100%",
-      "status": "todo",
-      "id": 6 
     }
   ]
 }

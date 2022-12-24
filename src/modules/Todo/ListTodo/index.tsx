@@ -9,7 +9,7 @@ const ListTodo = () => {
   const [todo, setTodo] = useState([]);
   const [pagination, setPagination] = useState({
     _page: 1,
-    _limit: 1,
+    _limit: 2,
     status: undefined,
   });
   const columns: ColumnsType<DataType> = [
@@ -66,9 +66,7 @@ const ListTodo = () => {
       key: "action",
       render: (_, record: any) => (
         <Space size="middle">
-          <Button type="primary" onClick={() => console.log(record)}>
-            Add
-          </Button>
+          <Button type="primary">Add</Button>
           <Button danger>Update</Button>
           <Button
             type="primary"
@@ -115,7 +113,7 @@ const ListTodo = () => {
           const response = await TodoService.deleteTodo(id);
           const { status } = response;
           if (status === 200) {
-            toast.error("Delete Success");
+            toast.success("Delete Successfully");
           }
         } catch (error) {
           toast.error(`${error}`);
@@ -129,7 +127,7 @@ const ListTodo = () => {
 
   useEffect(() => {
     getTodo();
-  }, [pagination]);
+  }, [pagination, todo]);
   return (
     <>
       <Table
@@ -140,7 +138,7 @@ const ListTodo = () => {
       />
       <Pagination
         defaultCurrent={1}
-        total={3}
+        total={4}
         pageSize={pagination._limit}
         onChange={handleChange}
       />
