@@ -42,7 +42,7 @@ const Sidebar = ({ handleClick }: any) => {
         items={[
           { label: "Home", key: "/", icon: <AiFillHome /> },
           { label: "Dashboard", key: "/dashboard", icon: <AiFillPieChart /> },
-          { label: "Profile", key: "/profile", icon: <AiOutlineUser /> },
+          { label: "DragDrop", key: "/paradrop", icon: <AiOutlineUser /> },
           {
             label: "Todo",
             key: "/todo",
