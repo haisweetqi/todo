@@ -4,6 +4,9 @@ export const TodoService = {
   getTodo(params: any) {
     return apiService.get("todo", { params });
   },
+  getTodoId(id: any) {
+    return apiService.get(`/todo/${id}`);
+  },
   addTodo(params: any) {
     return apiService.post("todo", params);
   },

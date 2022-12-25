@@ -1,16 +1,27 @@
 import React from "react";
 import { Button, Form, Input, DatePicker, Select } from "antd";
-
-const { RangePicker } = DatePicker;
+import { TodoService } from "../services";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const { TextArea } = Input;
 
 const AddTodo = () => {
-  const onFinish = (values: any) => {
+  const navigate = useNavigate();
+  const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
+  const onFinish = async (values: any) => {
     console.log("Success:", values);
+    try {
+      const response = await TodoService.addTodo(values);
+      const { status } = response;
+      if (status === 201) {
+        navigate("/listTodo");
+        toast.success("Add Successfully");
+      }
+    } catch (error) {
+      toast.success("Add Failed");
+    }
   };
-  const handleChange = (value: string) => {
-    console.log({ value });
-  };
+
   return (
     <>
       <h1 style={{ textAlign: "center" }}>Add Todo</h1>
@@ -38,8 +49,8 @@ const AddTodo = () => {
           <TextArea rows={4} />
         </Form.Item>
 
-        <Form.Item label="RangePicker" name="range-picker">
-          <RangePicker />
+        <Form.Item label="End Date  " name="endDate">
+          <DatePicker format={dateFormatList} />
         </Form.Item>
 
         <Form.Item label="Select" name="status">
@@ -59,7 +70,11 @@ const AddTodo = () => {
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 8 }}>
-          <Button type="primary" htmlType="submit">
+          <Button
+            type="primary"
+            htmlType="submit"
+            style={{ backgroundColor: "#1677ff" }}
+          >
             Submit
           </Button>
         </Form.Item>
